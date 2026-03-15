@@ -1,15 +1,14 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Box } from "@chakra-ui/react/box";
+import NavBar from "../components/NavBar";
 
 const MainLayout = () => {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </nav>
-
-      <Outlet />
+      <Box mx={10} my={8}>
+        <NavBar />
+        <Outlet />
+      </Box>
     </>
   );
 };

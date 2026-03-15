@@ -1,5 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
+import GamePage from "../pages/GamePage";
+import CheckoutPage from "../pages/CheckoutPage";
+import GameInfoPage from "../pages/GameInfoPage";
+import CartPage from "../pages/CartPage";
+import PaymentPage from "../pages/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -8,15 +13,23 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>Home Page</div>,
+        element: <GamePage />,
       },
       {
-        path: "about",
-        element: <div>About Page</div>,
+        path: "/game/:id",
+        element: <GameInfoPage />,
       },
       {
-        path: "contact",
-        element: <div>Contact Page</div>,
+        path: "/checkout",
+        element: <CheckoutPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
+      {
+        path: "/payment",
+        element: <PaymentPage />,
       },
     ],
   },
