@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <>
       <nav>
-        <HStack justify={"space-between"}>
+        <HStack justify={"space-between"} mb={4}>
           <Box
             boxSize={12}
             display="flex"
