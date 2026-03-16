@@ -35,7 +35,7 @@ class RawgApiClient {
             });
     };
 
-    getGameDetails = (id: number): Promise<GameDetails> => {
+    getGameInfo = (id: number): Promise<GameDetails> => {
         return this.apiClient
             .get<RawgGameDetailsResponse>(`/games/${id}`)
             .then((response) => {
@@ -43,6 +43,7 @@ class RawgApiClient {
 
                 return {
                     id: game.id,
+                    name: game.name,
                     image: game.background_image,
                     about: game.description,
                     genre: game.genres?.map((item) => item.name) ?? [],

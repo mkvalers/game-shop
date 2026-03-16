@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import useGames, { type Game } from "../api-clients/hooks/useGames";
 import GameCard from "../components/GameCard";
 import useGenreStore from "../store/genre-store";
+import GameCardSkeleton from "../components/GameCardSkeleton";
 
 const GameGridPage = () => {
   const selectedGenreId = useGenreStore((s) => s.genreId);
@@ -45,13 +46,16 @@ const GameGridPage = () => {
 
   return (
     <>
-      {isLoading && <Text>Loading games...</Text>}
       {isError && <Text>Failed to load games.</Text>}
 
       <SimpleGrid columns={{ base: 2, md: 2, xl: 4 }} gap={6}>
-        {games.map((game: Game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+        {(isLoading ? Array.from({ length: 8 }) : games).map((game, index) =>
+          isLoading ? (
+            <GameCardSkeleton key={`game-skeleton-${index}`} />
+          ) : (
+            <GameCard key={(game as Game).id} game={game as Game} />
+          ),
+        )}
       </SimpleGrid>
 
       <div ref={loadMoreRef} />

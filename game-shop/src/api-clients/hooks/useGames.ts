@@ -1,4 +1,4 @@
-import { keepPreviousData, useInfiniteQuery, type InfiniteData } from "@tanstack/react-query";
+import { useInfiniteQuery, type InfiniteData } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import rawgApiClient from "../rawg-api-client";
 

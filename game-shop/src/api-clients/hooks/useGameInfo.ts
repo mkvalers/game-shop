@@ -17,6 +17,7 @@ export interface RawgGameDetailsResponse {
 
 export interface GameDetails {
     id: number;
+    name: string,
     image?: string;
     about: string;
     genre: string[];
@@ -24,12 +25,12 @@ export interface GameDetails {
     developer: string[];
 }
 
-const useGameDetails = (id: number) => {
+const useGameInfo = (id: number) => {
   return useQuery<GameDetails>({
     queryKey: ["game", id],
-    queryFn: () => rawgApiClient.getGameDetails(id),
+    queryFn: () => rawgApiClient.getGameInfo(id),
     staleTime: 1000 * 60 * 5,
   });
 };
 
-export default useGameDetails;
+export default useGameInfo;

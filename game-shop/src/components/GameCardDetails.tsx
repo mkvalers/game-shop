@@ -4,13 +4,15 @@ interface Props {
   metacritic?: number;
 }
 
-const GameDetails = ({ metacritic }: Props) => {
+const GameCardDetails = ({ metacritic }: Props) => {
   return (
     <HStack justify={"space-between"}>
-      <Text>Price: $0.00</Text>
+      <Text textStyle="lg" fontWeight="medium" letterSpacing="tight">
+        Php. 0.00
+      </Text>
       {metacritic && <Text>Metacritic: {metacritic}</Text>}
     </HStack>
   );
 };
 
-export default GameDetails;
+export default GameCardDetails;

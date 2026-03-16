@@ -1,7 +1,7 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import type { Game } from "../api-clients/hooks/useGames";
-import GameDetails from "./GameDetails";
+import GameCardDetails from "./GameCardDetails";
 
 interface Props {
   game: Game;
@@ -50,7 +50,7 @@ const GameCard = ({ game }: Props) => {
         </Box>
 
         <Box m={{ base: 2.5, md: 4 }} mt={{ base: 0, md: 4 }}>
-          <GameDetails metacritic={game.metacritic} />
+          <GameCardDetails metacritic={game.metacritic} />
         </Box>
       </Box>
     </Link>
