@@ -10,8 +10,12 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   const isLongTitle = game.name.length > 28;
 
+  const handleCardClick = () => {
+    sessionStorage.setItem("gameGridScrollY", String(window.scrollY));
+  };
+
   return (
-    <Link to={`/game/${game.id}`} state={{ game }}>
+    <Link to={`/game/${game.id}`} state={{ game }} onClick={handleCardClick}>
       <Box
         borderWidth="1px"
         borderRadius="lg"

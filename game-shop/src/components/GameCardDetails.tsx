@@ -6,7 +6,7 @@ interface Props {
 
 const GameCardDetails = ({ metacritic }: Props) => {
   return (
-    <HStack justify={"space-between"}>
+    <HStack justify={"space-between"} align={"center"}>
       <Text textStyle="lg" fontWeight="medium" letterSpacing="tight">
         Php. 0.00
       </Text>

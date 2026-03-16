@@ -1,9 +1,10 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import useGames, { type Game } from "../api-clients/hooks/useGames";
 import GameCard from "../components/GameCard";
 import useGenreStore from "../store/genre-store";
 import GameCardSkeleton from "../components/GameCardSkeleton";
+import ReturnToTopButton from "../components/ReturnToTopButton";
 
 const GameGridPage = () => {
   const selectedGenreId = useGenreStore((s) => s.genreId);
@@ -19,6 +20,26 @@ const GameGridPage = () => {
 
   const games = data?.pages.flatMap((page) => page.results) ?? [];
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const hasRestoredScrollRef = useRef(false);
+
+  useLayoutEffect(() => {
+    if (hasRestoredScrollRef.current) return;
+    const storedScrollY = sessionStorage.getItem("gameGridScrollY");
+    if (!storedScrollY) return;
+
+    const targetScrollY = Number(storedScrollY);
+    window.scrollTo({
+      top: targetScrollY,
+      left: 0,
+      behavior: "auto",
+    });
+
+    const reachedTarget = Math.abs(window.scrollY - targetScrollY) <= 2;
+    if (!reachedTarget && isLoading) return;
+
+    hasRestoredScrollRef.current = true;
+    sessionStorage.removeItem("gameGridScrollY");
+  }, [isLoading, games.length]);
 
   useEffect(() => {
     const sentinel = loadMoreRef.current;
@@ -64,6 +85,8 @@ const GameGridPage = () => {
       {!hasNextPage && games.length > 0 && (
         <Text mt={4}>You reached the end.</Text>
       )}
+
+      <ReturnToTopButton />
     </>
   );
 };

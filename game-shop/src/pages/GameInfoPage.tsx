@@ -1,6 +1,8 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import type { Game } from "../api-clients/hooks/useGames";
+import useGameInfo from "../api-clients/hooks/useGameInfo";
 
 interface GameInfoLocationState {
   game?: Game;
@@ -11,6 +13,10 @@ const GameInfoPage = () => {
   const state = location.state as GameInfoLocationState | null;
   const game = state?.game;
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   if (!game) {
     return <Text>Game info is unavailable.</Text>;
   }
@@ -18,7 +24,11 @@ const GameInfoPage = () => {
   return (
     <Flex justify="center" align="center">
       <Box>
-        <NavLink to="/">Back</NavLink>
+        <Link to="/">
+          <Button variant="ghost" mb={4}>
+            Back
+          </Button>
+        </Link>
         {game.background_image && (
           <Image
             src={game.background_image}
