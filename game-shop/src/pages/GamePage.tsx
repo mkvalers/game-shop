@@ -72,7 +72,7 @@ const Home = () => {
         {isLoading && <Text>Loading games...</Text>}
         {isError && <Text>Failed to load games.</Text>}
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} gap={6}>
+        <SimpleGrid columns={{ base: 2, md: 2, xl: 4 }} gap={6}>
           {games.map((game: Game) => (
             <GameCard key={game.id} game={game} />
           ))}
