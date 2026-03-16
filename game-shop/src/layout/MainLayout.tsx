@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 const MainLayout = () => {
   return (
     <>
-      <Box mx={10} my={8}>
+      <Box mx={{ base: 3, md: 6, lg: 10 }} my={{ base: 4, md: 6, lg: 5 }}>
         <NavBar />
         <Outlet />
       </Box>

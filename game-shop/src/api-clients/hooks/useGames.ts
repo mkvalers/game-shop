@@ -1,6 +1,6 @@
 import { useInfiniteQuery, type InfiniteData } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import rawgApiClient from "../api-clients/rawg-api-client";
+import rawgApiClient from "../rawg-api-client";
 
 export interface Game {
   id: number;
@@ -19,19 +19,19 @@ export interface FetchGamesResponse {
   results: Game[];
 }
 
-const useGames = () => {
+const useGames = (genreId?: number) => {
   return useInfiniteQuery<
     FetchGamesResponse,
     AxiosError,
     InfiniteData<FetchGamesResponse>,
-    string[],
+    [string, number | undefined],
     string | undefined
   >({
-    queryKey: ["games"],
+    queryKey: ["games", genreId],
     initialPageParam: undefined as string | undefined,
     queryFn: async ({ pageParam }): Promise<FetchGamesResponse> => {
       if (!pageParam) {
-        return rawgApiClient.getGames() as Promise<FetchGamesResponse>;
+        return await rawgApiClient.getGames(genreId);
       }
 
       const response = await rawgApiClient.apiClient.get<FetchGamesResponse>(pageParam);
