@@ -11,11 +11,7 @@ const GameCard = ({ game }: Props) => {
   const isLongTitle = game.name.length > 28;
 
   return (
-    <Link
-      to={`/game/${game.id}`}
-      state={{ game }}
-      style={{ display: "block", height: "100%" }}
-    >
+    <Link to={`/game/${game.id}`} state={{ game }}>
       <Box
         borderWidth="1px"
         borderRadius="lg"
