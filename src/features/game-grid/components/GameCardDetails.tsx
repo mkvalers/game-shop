@@ -1,5 +1,5 @@
 import { Badge, Stack } from "@chakra-ui/react";
-import { FaPlus } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import PlatformIcons from "../../../components/PlatformIcons";
 import type { ParentPlatformEntry } from "../../../api-clients/rawg-api-client";
 
@@ -25,7 +25,7 @@ const GameCardDetails = ({ platforms, metacritic }: Props) => {
           px={1.5}
           py={1}
         >
-          <FaPlus style={{ display: "inline", marginRight: "2px" }} />
+          <FaStar style={{ display: "inline", marginRight: "2px" }} />
           {metacritic}
         </Badge>
       )}
