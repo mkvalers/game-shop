@@ -4,7 +4,6 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite)
 ![Chakra UI](https://img.shields.io/badge/Chakra_UI-3-319795?logo=chakraui)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 Game Stop Shop is a modern game discovery app built with React, TypeScript, and Chakra UI, powered by the RAWG API.
 
@@ -108,6 +107,13 @@ npm run dev
 ```
 
 ## Environment Variables
+
+Get your RAWG API key first:
+
+1. Go to https://rawg.io/apidocs.
+2. Sign up or log in to your RAWG account.
+3. Create an app or request an API key from the RAWG dashboard.
+4. Copy the generated API key.
 
 Create a `.env` file in the project root:
 
