@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import rawgApiClient from "../../../api-clients/rawg-api-client";
+import rawgApiClient from "../rawg-api-client";
 
 export type GameInfo = Awaited<ReturnType<typeof rawgApiClient.getGameInfo>>;
 

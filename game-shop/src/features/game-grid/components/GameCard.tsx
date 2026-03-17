@@ -1,8 +1,7 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import type { Game } from "../api/useGames";
+import type { Game } from "../../../api-clients/hooks/useGames";
 import GameCardDetails from "./GameCardDetails";
-import useGamePrice from "../hooks/useGamePrice";
 import { useColorModeValue } from "../../../components/ui/color-mode";
 
 interface Props {
@@ -11,7 +10,6 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   const isLongTitle = game.name.length > 28;
-  const price = useGamePrice(game.id);
 
   const surface = useColorModeValue("white", "gray.900");
   const softSurface = useColorModeValue("gray.100", "gray.800");
@@ -80,7 +78,10 @@ const GameCard = ({ game }: Props) => {
           pb={{ base: 3, md: 4 }}
           mt={{ base: 2, md: 3 }}
         >
-          <GameCardDetails price={price} metacritic={game.metacritic} />
+          <GameCardDetails
+            platforms={game.parent_platforms}
+            metacritic={game.metacritic}
+          />
         </Box>
       </Box>
     </Link>

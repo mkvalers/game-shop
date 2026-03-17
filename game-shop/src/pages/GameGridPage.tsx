@@ -1,5 +1,5 @@
 import { Box, Grid, SimpleGrid, Text } from "@chakra-ui/react";
-import { type Game } from "../features/game-grid/api/useGames";
+import { type Game } from "../api-clients/hooks/useGames";
 import GameCard from "../features/game-grid/components/GameCard";
 import GameOrderSelect from "../features/game-grid/components/GameOrderSelect";
 import GameInfoLoadingState from "../features/game-grid/components/GameInfoLoadingState";
@@ -12,7 +12,7 @@ import useGameOrdering, {
 import useGameGridScrollRestore from "../features/game-grid/hooks/useGameGridScrollRestore";
 import useGameSearchQuery from "../features/game-grid/hooks/useGameSearchQuery";
 import useInfiniteScrollLoadMore from "../features/game-grid/hooks/useInfiniteScrollLoadMore";
-import useGenres from "../features/genre-filter/api/useGenres";
+import useGenres from "../api-clients/hooks/useGenres";
 import GenreFilterSelect from "../features/genre-filter/components/GenreFilterSelect";
 import useGenreStore from "../features/genre-filter/store/genre-store";
 import CommonSpinner from "../components/CommonSpinner";

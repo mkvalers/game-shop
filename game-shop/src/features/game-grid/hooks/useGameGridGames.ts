@@ -1,4 +1,4 @@
-import useGames from "../api/useGames";
+import useGames from "../../../api-clients/hooks/useGames";
 import type { GameOrdering } from "./useGameOrdering";
 
 const useGameGridGames = (

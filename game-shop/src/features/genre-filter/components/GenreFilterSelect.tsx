@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 import type { ChangeEvent } from "react";
-import type { Genre } from "../api/useGenres";
+import type { Genre } from "../../../api-clients/hooks/useGenres";
 import { useColorModeValue } from "../../../components/ui/color-mode";
 
 interface Props {

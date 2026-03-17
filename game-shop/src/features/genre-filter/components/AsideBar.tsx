@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import useGenres from "../api/useGenres";
+import useGenres from "../../../api-clients/hooks/useGenres";
 import useGenreStore from "../store/genre-store";
 import GenreList from "./GenreList";
 import GenreListSkeleton from "./GenreListSkeleton";

@@ -1,25 +1,17 @@
-import { Badge, HStack, Text } from "@chakra-ui/react";
-import { useColorModeValue } from "../../../components/ui/color-mode";
+import { Badge, HStack } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
+import PlatformIcons from "../../../components/PlatformIcons";
+import type { ParentPlatformEntry } from "../../../api-clients/rawg-api-client";
 
 interface Props {
-  price: number;
+  platforms?: ParentPlatformEntry[];
   metacritic?: number;
 }
 
-const GameCardDetails = ({ price, metacritic }: Props) => {
-  const priceColor = useColorModeValue("gray.900", "gray.100");
-
+const GameCardDetails = ({ platforms, metacritic }: Props) => {
   return (
-    <HStack justify={"space-between"} align={"center"}>
-      <Text
-        textStyle="lg"
-        fontWeight="semibold"
-        letterSpacing="tight"
-        color={priceColor}
-      >
-        &#8369;{price}
-      </Text>
+    <HStack justify="space-between" align="center">
+      <PlatformIcons platforms={platforms} />
       {metacritic && (
         <Badge
           colorPalette="green"

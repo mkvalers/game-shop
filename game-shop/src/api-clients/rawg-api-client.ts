@@ -5,6 +5,16 @@ interface RawgNamedItem {
     name: string;
 }
 
+export interface ParentPlatform {
+    id: number;
+    name: string;
+    slug: string;
+}
+
+export interface ParentPlatformEntry {
+    platform: ParentPlatform;
+}
+
 export interface Game {
     id: number;
     slug: string;
@@ -13,6 +23,7 @@ export interface Game {
     background_image?: string;
     rating: number;
     metacritic?: number;
+    parent_platforms?: ParentPlatformEntry[];
 }
 
 export interface FetchGamesResponse {
@@ -45,6 +56,7 @@ interface RawgGameInfoResponse {
     released?: string;
     genres?: RawgNamedItem[];
     developers?: RawgNamedItem[];
+    parent_platforms?: ParentPlatformEntry[];
 }
 
 export interface GameInfo {
@@ -55,6 +67,7 @@ export interface GameInfo {
     genre: string[];
     releaseDate?: string;
     developer: string[];
+    parent_platforms?: ParentPlatformEntry[];
 }
 
 const apiKey = import.meta.env.VITE_RAWG_API_KEY;
@@ -121,6 +134,7 @@ class RawgApiClient {
                     genre: game.genres?.map((item) => item.name) ?? [],
                     releaseDate: game.released,
                     developer: game.developers?.map((item) => item.name) ?? [],
+                    parent_platforms: game.parent_platforms,
                 };
             })
             .catch((error) => {

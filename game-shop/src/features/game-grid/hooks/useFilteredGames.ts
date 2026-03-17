@@ -1,5 +1,5 @@
 import { useDeferredValue } from "react";
-import type { Game } from "../api/useGames";
+import type { Game } from "../../../api-clients/hooks/useGames";
 
 const useFilteredGames = (games: Game[], searchQuery: string) => {
   const deferredQuery = useDeferredValue(searchQuery.trim().toLowerCase());
