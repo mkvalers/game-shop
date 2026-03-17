@@ -7,6 +7,8 @@
 
 Game Stop Shop is a modern game discovery app built with React, TypeScript, and Chakra UI, powered by the RAWG API.
 
+Live site: https://game-discovery-self-kappa.vercel.app/
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -15,6 +17,7 @@ Game Stop Shop is a modern game discovery app built with React, TypeScript, and 
 - [Project Architecture](#project-architecture)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
+- [Deployment](#deployment)
 - [Available Scripts](#available-scripts)
 - [Routing](#routing)
 - [Data Source](#data-source)
@@ -122,6 +125,12 @@ VITE_RAWG_API_KEY=your_rawg_api_key_here
 ```
 
 Without this key, game and genre requests will fail.
+
+## Deployment
+
+The app is currently deployed on Vercel:
+
+- Production URL: https://game-discovery-self-kappa.vercel.app/
 
 ## Available Scripts
 

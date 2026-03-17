@@ -45,7 +45,7 @@ const PlatformIcons = ({ platforms }: Props) => {
   const iconColor = useColorModeValue("gray.600", "gray.400");
 
   return (
-    <HStack gap={2}>
+    <HStack gap={2} flexWrap="wrap" rowGap={1}>
       {platforms?.map(({ platform }) => {
         if (!isPlatformSlug(platform.slug)) return null;
         const Icon = platformIconMap[platform.slug];

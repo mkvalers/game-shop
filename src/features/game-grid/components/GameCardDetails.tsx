@@ -10,7 +10,7 @@ interface Props {
 
 const GameCardDetails = ({ platforms, metacritic }: Props) => {
   return (
-    <HStack justify="space-between" align="center">
+    <HStack justify="space-between" align="center" flexWrap="wrap" rowGap={2}>
       <PlatformIcons platforms={platforms} />
       {metacritic && (
         <Badge
