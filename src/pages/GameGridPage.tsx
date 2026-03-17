@@ -1,4 +1,4 @@
-import { Box, Grid, HStack, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 import { type Game } from "../api-clients/hooks/useGames";
 import GameCard from "../features/game-grid/components/GameCard";
 import GameOrderSelect from "../features/game-grid/components/GameOrderSelect";
@@ -50,16 +50,16 @@ const GameGridPage = () => {
       <Grid
         templateColumns={{
           base: "1fr",
-          sm: "1.4fr 1fr 1fr",
+          sm: "1fr",
           lg: "1fr 260px",
         }}
         gap={4}
         mb={6}
         alignItems="end"
       >
-        <Box minW={0} gridColumn={{ base: "1 / -1", sm: "auto" }}>
+        <Flex minW={0} gridColumn={{ base: "1fr", sm: "auto" }} flex={1}>
           <GameSearchBar value={searchQuery} onChange={setSearchQuery} />
-        </Box>
+        </Flex>
 
         <HStack
           minW={0}

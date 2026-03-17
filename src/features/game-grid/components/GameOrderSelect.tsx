@@ -37,16 +37,6 @@ const GameOrderSelect = ({ value, options, onChange }: Props) => {
         display="flex"
         alignItems="center"
       >
-        <Text
-          color={textColor}
-          fontSize="sm"
-          fontWeight="medium"
-          whiteSpace="nowrap"
-          mr={1}
-        >
-          Sort
-        </Text>
-
         <select
           value={value}
           onChange={handleChange}

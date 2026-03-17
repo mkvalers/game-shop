@@ -64,7 +64,7 @@ const GameCard = ({ game }: Props) => {
           <Heading
             fontSize={{
               base: isLongTitle ? "sm" : "md",
-              md: isLongTitle ? "lg" : "xl",
+              md: isLongTitle ? "xl" : "x-large",
             }}
             lineClamp={2}
             color={headingColor}
