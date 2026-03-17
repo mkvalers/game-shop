@@ -7,6 +7,8 @@ import useGameInfoRouteId from "../features/game-info/hooks/useGameInfoRouteId";
 import useScrollToTopOnMount from "../features/game-info/hooks/useScrollToTopOnMount";
 import { useColorModeValue } from "../components/ui/color-mode";
 import CommonSpinner from "../components/CommonSpinner";
+import AddToCartButton from "../components/purchase/AddToCartButton";
+import BuyButton from "../components/purchase/BuyButton";
 
 const GameInfoPage = () => {
   const { gameId, hasInvalidId } = useGameInfoRouteId();
@@ -46,31 +48,55 @@ const GameInfoPage = () => {
           <GameInfoHero name={game.name} image={game.image} />
 
           <Stack gap={5}>
-            <HStack gap={3} wrap="wrap">
-              {game.releaseDate && (
-                <Badge
-                  colorPalette="orange"
-                  variant="subtle"
-                  px={3}
-                  py={1.5}
-                  borderRadius="full"
-                >
-                  Released {game.releaseDate}
-                </Badge>
-              )}
-              {game.genre.slice(0, 3).map((genre) => (
-                <Badge
-                  key={genre}
-                  colorPalette="blue"
-                  variant="subtle"
-                  px={3}
-                  py={1.5}
-                  borderRadius="full"
-                >
-                  {genre}
-                </Badge>
-              ))}
-            </HStack>
+            <Stack
+              direction={{ base: "column", lg: "row" }}
+              gap={3}
+              justify="space-between"
+              align={{ base: "stretch", lg: "center" }}
+            >
+              <HStack gap={3} wrap="wrap" flex="1">
+                {game.releaseDate && (
+                  <Badge
+                    colorPalette="orange"
+                    variant="subtle"
+                    px={3}
+                    py={1.5}
+                    borderRadius="full"
+                  >
+                    Released {game.releaseDate}
+                  </Badge>
+                )}
+                {game.genre.slice(0, 3).map((genre) => (
+                  <Badge
+                    key={genre}
+                    colorPalette="blue"
+                    variant="subtle"
+                    px={3}
+                    py={1.5}
+                    borderRadius="full"
+                  >
+                    {genre}
+                  </Badge>
+                ))}
+              </HStack>
+
+              <HStack
+                gap={3}
+                wrap="nowrap"
+                width={{ base: "full", lg: "auto" }}
+              >
+                <BuyButton
+                  gameName={game.name}
+                  size="md"
+                  flex={{ base: 1, lg: "unset" }}
+                />
+                <AddToCartButton
+                  gameName={game.name}
+                  size="md"
+                  flex={{ base: 1, lg: "unset" }}
+                />
+              </HStack>
+            </Stack>
 
             <Box
               p={{ base: 5, md: 6 }}
