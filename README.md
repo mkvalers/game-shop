@@ -12,19 +12,23 @@ Live site: https://game-discovery-self-kappa.vercel.app/
 ## Table of Contents
 
 - [Overview](#overview)
+- [Deployment](#deployment)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Architecture](#project-architecture)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
-- [Deployment](#deployment)
-- [Available Scripts](#available-scripts)
-- [Routing](#routing)
 - [Data Source](#data-source)
 
 ## Overview
 
 This project focuses on a layered, feature-first frontend architecture where pages orchestrate data flow and feature components handle presentation and interaction.
+
+## Deployment
+
+The app is currently deployed on Vercel:
+
+- Production URL: https://game-discovery-self-kappa.vercel.app/
 
 ## Features
 
@@ -125,28 +129,6 @@ VITE_RAWG_API_KEY=your_rawg_api_key_here
 ```
 
 Without this key, game and genre requests will fail.
-
-## Deployment
-
-The app is currently deployed on Vercel:
-
-- Production URL: https://game-discovery-self-kappa.vercel.app/
-
-## Available Scripts
-
-| Command           | Description                         |
-| ----------------- | ----------------------------------- |
-| `npm run dev`     | Start Vite dev server               |
-| `npm run build`   | Type-check and build for production |
-| `npm run lint`    | Run ESLint                          |
-| `npm run preview` | Preview production build            |
-
-## Routing
-
-Current routes:
-
-- `/` -> Game grid page
-- `/game/:id` -> Game detail page
 
 ## Data Source
 
