@@ -1,4 +1,4 @@
-# Game Stop Shop
+# Game Discovery
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript)
