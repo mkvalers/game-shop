@@ -1,10 +1,13 @@
 import { Box } from "@chakra-ui/react/box";
 import NavBar from "../components/NavBar";
 import { Grid, GridItem } from "@chakra-ui/react";
-import AsideBar from "../features/genre-filter/components/AsideBar";
 import { Outlet } from "react-router-dom";
 
-const MainLayout = () => {
+interface Props {
+  aside?: React.ReactNode;
+}
+
+const MainLayout = ({ aside }: Props) => {
   return (
     <>
       <Box
@@ -31,7 +34,7 @@ const MainLayout = () => {
           </GridItem>
 
           <GridItem area="aside" hideBelow="lg">
-            <AsideBar />
+            {aside}
           </GridItem>
 
           <GridItem area="main">
