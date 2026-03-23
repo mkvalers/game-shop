@@ -99,7 +99,7 @@ class RawgApiClient {
     getGamesByUrl = (url: string): Promise<FetchGamesResponse> =>
         this.apiClient.get<FetchGamesResponse>(url).then((response) => response.data);
 
-    genGenres = (): Promise<FetchGenresResponse> =>
+    getGenres = (): Promise<FetchGenresResponse> =>
         this.apiClient.get("/genres").then((response) => response.data);
 
     getGameInfo = (id: number): Promise<GameInfo> =>

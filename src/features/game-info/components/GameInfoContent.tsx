@@ -5,7 +5,6 @@ import BackToGamesButton from "./BackToGamesButton";
 import GameInfoHero from "./GameInfoHero";
 import GameInfoMeta from "./GameInfoMeta";
 import GameInfoAbout from "./GameInfoAbout";
-
 import GameInfoMetaCard from "./GameInfoMetaCard";
 
 interface Props {

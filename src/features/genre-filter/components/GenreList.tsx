@@ -7,7 +7,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Genre } from "../../../api-clients/hooks/useGenres";
 
 interface Props {
@@ -17,16 +17,11 @@ interface Props {
 }
 
 const GenreList = ({ genres, selectedGenreId, onSelectGenre }: Props) => {
-  const [optimisticGenreId, setOptimisticGenreId] = useState<
-    number | undefined
-  >(selectedGenreId);
-
-  useEffect(() => {
-    setOptimisticGenreId(selectedGenreId);
-  }, [selectedGenreId]);
+  const [pendingGenreId, setPendingGenreId] = useState<number | undefined>(undefined);
+  const displayGenreId = pendingGenreId ?? selectedGenreId;
 
   const handleSelectGenre = (genreId?: number) => {
-    setOptimisticGenreId(genreId);
+    setPendingGenreId(genreId);
     onSelectGenre(genreId);
   };
 
@@ -38,14 +33,14 @@ const GenreList = ({ genres, selectedGenreId, onSelectGenre }: Props) => {
       <VStack align="stretch" gap={2}>
         <Button
           justifyContent="flex-start"
-          variant={optimisticGenreId === undefined ? "solid" : "ghost"}
+          variant={displayGenreId === undefined ? "solid" : "ghost"}
           onClick={() => handleSelectGenre(undefined)}
           transition="background-color 0.2s ease, color 0.2s ease, transform 0.2s ease"
         >
           All genres
         </Button>
         {genres.map((genre) => {
-          const isSelected = optimisticGenreId === genre.id;
+          const isSelected = displayGenreId === genre.id;
           return (
             <Button
               key={genre.id}

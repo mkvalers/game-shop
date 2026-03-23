@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import type { Game } from "../../../api-clients/hooks/useGames";
 import GameCardDetails from "./GameCardDetails";
 import { useColorModeValue } from "../../../components/ui/color-mode";
+import useCardSurface from "../../../components/useCardSurface";
+
+const LONG_TITLE_THRESHOLD = 28;
 
 interface Props {
   game: Game;
@@ -10,11 +13,8 @@ interface Props {
 }
 
 const GameCard = ({ game, onCardClick }: Props) => {
-  const isLongTitle = game.name.length > 28;
-
-  const surface = useColorModeValue("white", "gray.900");
-  const softSurface = useColorModeValue("gray.100", "gray.800");
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.200");
+  const isLongTitle = game.name.length > LONG_TITLE_THRESHOLD;
+  const { surface, softSurface, borderColor } = useCardSurface();
   const headingColor = useColorModeValue("gray.900", "gray.100");
 
   return (

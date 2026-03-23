@@ -1,5 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 import { useColorModeValue } from "../../../components/ui/color-mode";
+import useCardSurface from "../../../components/useCardSurface";
 
 interface Props {
   label: string;
@@ -8,8 +9,7 @@ interface Props {
 }
 
 const GameInfoMetaCard = ({ label, value, accentColor }: Props) => {
-  const surface = useColorModeValue("white", "gray.900");
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.200");
+  const { surface, borderColor } = useCardSurface();
   const headingColor = useColorModeValue("gray.900", "gray.100");
 
   return (

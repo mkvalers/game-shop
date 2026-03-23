@@ -1,13 +1,13 @@
 import { Box, Text } from "@chakra-ui/react";
 import { useColorModeValue } from "../../../components/ui/color-mode";
+import useCardSurface from "../../../components/useCardSurface";
 
 interface Props {
   content: string;
 }
 
 const GameInfoAbout = ({ content }: Props) => {
-  const surface = useColorModeValue("white", "gray.900");
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.200");
+  const { surface, borderColor } = useCardSurface();
   const bodyText = useColorModeValue("gray.700", "gray.300");
   const subtleText = useColorModeValue("gray.500", "gray.400");
 

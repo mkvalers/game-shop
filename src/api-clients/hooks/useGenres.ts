@@ -9,7 +9,7 @@ export type Genre = FetchGenresResponse["results"][number];
 const useGenres = () => {
   return useQuery<FetchGenresResponse, AxiosError>({
     queryKey: ["genres"],
-    queryFn: async () => await rawgApiClient.genGenres(),
+    queryFn: async () => await rawgApiClient.getGenres(),
     staleTime: 1000 * 60 * 10,
   });
 };

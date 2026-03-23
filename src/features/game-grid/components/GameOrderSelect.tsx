@@ -1,10 +1,7 @@
-import { Box } from "@chakra-ui/react";
 import type { ChangeEvent } from "react";
 import { useColorModeValue } from "../../../components/ui/color-mode";
-import type {
-  GameOrdering,
-  GameOrderingOption,
-} from "../hooks/useGameOrdering";
+import StyledSelect from "../../../components/StyledSelect";
+import type { GameOrdering, GameOrderingOption } from "../store/game-grid-store";
 
 interface Props {
   value: GameOrdering;
@@ -13,53 +10,25 @@ interface Props {
 }
 
 const GameOrderSelect = ({ value, options, onChange }: Props) => {
-  const bg = useColorModeValue("white", "gray.900");
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.200");
-  const selectTextColor = useColorModeValue("#1A202C", "#F7FAFC");
   const optionBgColor = useColorModeValue("#FFFFFF", "#1A202C");
+  const optionTextColor = useColorModeValue("#1A202C", "#F7FAFC");
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value as GameOrdering);
   };
 
   return (
-    <Box>
-      <Box
-        width="full"
-        height="44px"
-        px={2.5}
-        bg={bg}
-        borderWidth="1px"
-        borderColor={borderColor}
-        borderRadius="xl"
-        boxShadow="sm"
-        display="flex"
-        alignItems="center"
-      >
-        <select
-          value={value}
-          onChange={handleChange}
-          style={{
-            flex: 1,
-            height: "100%",
-            background: "transparent",
-            border: "none",
-            outline: "none",
-            color: selectTextColor,
-          }}
+    <StyledSelect value={value} onChange={handleChange}>
+      {options.map((option) => (
+        <option
+          key={option.label}
+          value={option.value}
+          style={{ color: optionTextColor, backgroundColor: optionBgColor }}
         >
-          {options.map((option) => (
-            <option
-              key={option.label}
-              value={option.value}
-              style={{ color: selectTextColor, backgroundColor: optionBgColor }}
-            >
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </Box>
-    </Box>
+          {option.label}
+        </option>
+      ))}
+    </StyledSelect>
   );
 };
 
