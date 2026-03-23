@@ -12,7 +12,6 @@ Live site: https://game-discovery-self-kappa.vercel.app/
 ## Table of Contents
 
 - [Overview](#overview)
-- [Deployment](#deployment)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Architecture](#project-architecture)
@@ -23,12 +22,6 @@ Live site: https://game-discovery-self-kappa.vercel.app/
 ## Overview
 
 This project focuses on a layered, feature-first frontend architecture where pages orchestrate data flow and feature components handle presentation and interaction.
-
-## Deployment
-
-The app is currently deployed on Vercel:
-
-- Production URL: https://game-discovery-self-kappa.vercel.app/
 
 ## Features
 
