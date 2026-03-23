@@ -1,8 +1,10 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "@/layout/MainLayout";
-import GameGridPage from "@/pages/GameGridPage";
-import GameInfoPage from "@/pages/GameInfoPage";
 import AsideBar from "@/features/genre-filter/components/AsideBar";
+
+const GameGridPage = lazy(() => import("@/pages/GameGridPage"));
+const GameInfoPage = lazy(() => import("@/pages/GameInfoPage"));
 
 const router = createBrowserRouter([
   {
